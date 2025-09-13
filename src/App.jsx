@@ -60,7 +60,8 @@ function App() {
                         {carSpecifications.map((item, i) => (
                             <div
                                 key={i}
-                                className="h-28 border border-gray-400 bg-gray-100 p-2 rounded-lg flex flex-col items-center justify-center hover:bg-blue-500 hover:text-white"
+                                className="h-28 border border-gray-400 bg-gray-100 p-2 rounded-lg flex flex-col
+                                items-center justify-center hover:bg-blue-500 hover:text-white cursor-pointer"
                             >
                                 <div className="text-2xl">{item.icon}</div>
                                 <div className="text-center">
