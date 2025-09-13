@@ -31,7 +31,7 @@ function App() {
                         <div className="text-lg font-bold">2006</div>
                     </div>
                     {/* Car Image */}
-                    <div className="flex justify-center items-center pb-5">
+                    <div className="flex justify-center items-center py-5">
                         <img src={carImg} alt="car" />
                     </div>
                     {/* Car number */}
@@ -75,29 +75,6 @@ function App() {
                                 </div>
                             );
                         })}
-
-                        {/*<div*/}
-                        {/*    className="group flex justify-between items-center border border-gray-400 bg-gray-100 p-2 rounded-lg mb-2 hover:bg-blue-500">*/}
-                        {/*    <div className="text-xl font-bold capitalize group-hover:text-white">Telegram</div>*/}
-                        {/*    <a*/}
-                        {/*        href="https://t.me/@David_Coder"*/}
-                        {/*        target="_blank"*/}
-                        {/*        rel="noopener noreferrer"*/}
-                        {/*        className="text-lg font-bold text-blue-400 group-hover:text-white hover:underline"*/}
-                        {/*    >*/}
-                        {/*        @David_Coder*/}
-                        {/*    </a>*/}
-                        {/*</div>*/}
-                        {/*<div*/}
-                        {/*    className="group flex justify-between items-center mb-0 border border-gray-400 bg-gray-100 p-2 rounded-lg hover:bg-blue-500 cursor-pointer">*/}
-                        {/*    <div className="text-xl font-bold capitalize group-hover:text-white">Email</div>*/}
-                        {/*    <a*/}
-                        {/*        href="mailto:karapetyand91@gmail.com"*/}
-                        {/*        className="text-lg font-bold text-blue-400 group-hover:text-white hover:underline"*/}
-                        {/*    >*/}
-                        {/*        karapetyand91@gmail.com*/}
-                        {/*    </a>*/}
-                        {/*</div>*/}
                     </div>
                 </div>
                 <div
