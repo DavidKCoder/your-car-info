@@ -83,7 +83,7 @@ function App() {
                                         {item.label}
                                     </div>
                                     <a href={item.href}
-                                       className="text-sm font-bold text-blue-400 group-hover:text-white group-active:text-white hover:underline active :underline"
+                                       className="text-sm font-bold text-blue-400 group-hover:text-white group-active:text-white hover:underline active:underline"
                                     >
                                         {item.title}
                                     </a>
