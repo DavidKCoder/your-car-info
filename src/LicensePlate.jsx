@@ -1,6 +1,6 @@
 function LicensePlate() {
     return (
-        <div className="flex items-center w-full max-w-64 border-2 border-black rounded-md p-2 bg-white mb-5 hover:bg-orange-300">
+        <div className="flex items-center w-full max-w-64 border-2 border-black rounded-md p-2 bg-white mb-5">
             <div className="flex flex-col items-center justify-center">
                 <img
                     src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Flag_of_Armenia.svg/1280px-Flag_of_Armenia.svg.png"
