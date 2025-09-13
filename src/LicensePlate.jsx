@@ -1,4 +1,10 @@
+import { useContext } from "react";
+import { CarContext } from "./context/CarContext.jsx";
+
 function LicensePlate() {
+    const { licensePlate } = useContext(CarContext);
+    const {left, middle, right} = licensePlate;
+
     return (
         <div className="flex items-center w-full max-w-64 border-2 border-black rounded-md p-2 bg-white mb-5">
             <div className="flex flex-col items-center justify-center">
@@ -13,9 +19,9 @@ function LicensePlate() {
             <div className="w-1 h-10 bg-gray-300 mx-2"></div>
             {/* Main plate numbers */}
             <div className="flex space-x-1 items-center text-black font-bold text-4xl">
-                <span>69</span>
-                <span>DV</span>
-                <span>669</span>
+                <span>{left}</span>
+                <span>{middle}</span>
+                <span>{right}</span>
             </div>
         </div>
     );
