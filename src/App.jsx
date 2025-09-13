@@ -7,6 +7,8 @@ import { ContactBlock } from "./components/ContactBlock.jsx";
 import { CarSpecificationBlock } from "./components/CarSpecificationBlock.jsx";
 import { useTranslation } from "react-i18next";
 import { LanguageSwitcher } from "./components/LanguageSwitcher.jsx";
+import { LuSettings } from "react-icons/lu";
+
 
 function App() {
     const { t } = useTranslation();
@@ -38,6 +40,13 @@ function App() {
                         </div>
                         {/* Language Switcher */}
                         <LanguageSwitcher />
+                        <div className="fixed top-[15%] right-4 border border-gray-400 bg-gray-100 p-1 rounded-lg">
+                            <LuSettings
+                                size={25}
+                                className="animate-spin cursor-pointer"
+                                style={{ animationDuration: '5s' }} // slow spin
+                            />
+                        </div>
                     </div>
                     {/* Car Model */}
                     <div
