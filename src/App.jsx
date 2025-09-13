@@ -51,7 +51,7 @@ function App() {
                     </div>
                     {/* Car specifications */}
                     <div
-                        className="text-xl font-bold capitalize mb-0 border border-gray-400 bg-gray-100 p-2 rounded-lg hover:bg-amber-600 active:bg-amber-600">
+                        className="text-xl font-bold capitalize mb-0 border border-gray-400 bg-gray-100 p-2 rounded-lg">
                         car specifications
                     </div>
                     <div className="grid grid-cols-3 gap-2.5 mb-0 py-5">
@@ -59,7 +59,7 @@ function App() {
                             <div
                                 key={i}
                                 className="h-28 border border-gray-400 bg-gray-100 p-2 rounded-lg flex flex-col
-                                items-center justify-center hover:bg-blue-500 hover:text-white cursor-pointer"
+                                items-center justify-center hover:bg-blue-500 hover:text-white active:bg-blue-500 active:text-white cursor-pointer"
                             >
                                 <div className="text-2xl">{item.icon}</div>
                                 <div className="text-center">
