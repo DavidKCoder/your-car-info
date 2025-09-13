@@ -1,21 +1,9 @@
 import { GrMapLocation } from "react-icons/gr";
-import { BsFillFuelPumpFill } from "react-icons/bs";
-import { IoSpeedometerSharp } from "react-icons/io5";
-import { PiEngineFill } from "react-icons/pi";
-import { PiSpeedometerBold } from "react-icons/pi";
-import { MdAirlineSeatReclineExtra } from "react-icons/md";
-import { GiCarWheel } from "react-icons/gi";
 import LicensePlate from "./LicensePlate.jsx";
 import carImg from "./assets/nissan-x-trail.jpg";
+import { carSpecifications } from "./constants/specifications.jsx";
 
-const carSpecifications = [
-    { id: 3, icon: <PiEngineFill />, title: "Engine", value: "2.0" },
-    { id: 1, icon: <PiSpeedometerBold />, title: "Horsepower", value: "150 hp" },
-    { id: 2, icon: <IoSpeedometerSharp />, title: "Max speed", value: "240 km/h" },
-    { id: 0, icon: <BsFillFuelPumpFill />, title: "Petrol", value: "Fuel" },
-    { id: 3, icon: <MdAirlineSeatReclineExtra />, title: "Places", value: "5 Seats" },
-    { id: 3, icon: <GiCarWheel />, title: "Drivetrain", value: "4x4" },
-];
+
 
 function App() {
     return (
