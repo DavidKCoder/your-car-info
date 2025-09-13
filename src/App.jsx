@@ -19,7 +19,7 @@ const carSpecifications = [
 
 function App() {
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="flex items-center justify-center bg-gray-50">
             <div className="min-h-screen w-full max-w-lg bg-white shadow-md rounded-lg">
                 <div className="p-4 pb-0 ">
                     <div className="flex justify-between items-center mb-5">
@@ -97,10 +97,10 @@ function App() {
                         </a>
                     </div>
                 </div>
-                {/*<div*/}
-                {/*    className="font-bold capitalize mb-0 border p-2 rounded-lg bottom-0 left-0 w-full bg-gray-100 border-t border-gray-300 text-center text-gray-500 text-sm">*/}
-                {/*    © {new Date().getFullYear()} David's App. All rights reserved.*/}
-                {/*</div>*/}
+                <div
+                    className="font-bold capitalize mb-0 border p-2 rounded-lg bottom-0 left-0 w-full bg-gray-100 border-t border-gray-300 text-center text-gray-500 text-sm">
+                    © {new Date().getFullYear()} David's App. All rights reserved.
+                </div>
             </div>
         </div>
     );
