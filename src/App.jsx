@@ -44,7 +44,7 @@ function App() {
                         <div className="text-lg font-bold">2006</div>
                     </div>
                     {/* Car Image */}
-                    <div className="flex justify-center items-center">
+                    <div className="flex justify-center items-center pb-5">
                         <img src={carImg} alt="car" />
                     </div>
                     {/* Car number */}
