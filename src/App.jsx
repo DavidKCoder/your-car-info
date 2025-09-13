@@ -51,7 +51,7 @@ function App() {
                     </div>
                     {/* Car specifications */}
                     <div
-                        className="text-xl font-bold capitalize mb-0 border border-gray-400 bg-gray-100 p-2 rounded-lg hover:bg-amber-600">
+                        className="text-xl font-bold capitalize mb-0 border border-gray-400 bg-gray-100 p-2 rounded-lg hover:bg-amber-600 active:bg-amber-600">
                         car specifications
                     </div>
                     <div className="grid grid-cols-3 gap-2.5 mb-0 py-5">
