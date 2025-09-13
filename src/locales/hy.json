@@ -1,0 +1,16 @@
+{
+  "phone": "Հեռախոս",
+  "email": "Էլ․ հասցե",
+  "telegram": "Թելեգրամ",
+  "carSpecifications": "Մեքենայի բնութագրերը",
+  "yourLocation": "Ձեր գտնվելու վայրը",
+  "permissionDenied": "Մուտքը մերժված է",
+  "fetchingLocation": "Վերցվում է գտնվելու վայրը...",
+  "engine": "Շարժիչ",
+  "horsepower": "Ձիաուժ",
+  "maxSpeed": "Մաքս. արագություն",
+  "petrol": "Բենզին",
+  "places": "Նստատեղեր",
+  "drivetrain": "Քարշակում",
+  "footerText": "© 2025 David-ի հավելվածը։ Բոլոր իրավունքները պաշտպանված են։"
+}

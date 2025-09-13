@@ -1,0 +1,16 @@
+{
+  "phone": "Телефон",
+  "email": "Эл. почта",
+  "telegram": "Телеграм",
+  "carSpecifications": "Характеристики автомобиля",
+  "yourLocation": "Ваше местоположение",
+  "permissionDenied": "Доступ запрещен",
+  "fetchingLocation": "Определение местоположения...",
+  "engine": "Двигатель",
+  "horsepower": "Мощность",
+  "maxSpeed": "Макс. скорость",
+  "petrol": "Бензин",
+  "places": "Места",
+  "drivetrain": "Привод",
+  "footerText": "© 2025 Приложение Давида. Все права защищены."
+}

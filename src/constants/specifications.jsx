@@ -5,13 +5,14 @@ import { MdAirlineSeatReclineExtra } from "react-icons/md";
 import { GiCarWheel } from "react-icons/gi";
 
 export const carSpecifications = [
-    { id: 1, icon: <PiEngineFill />, title: "Engine", value: "2.0" },
-    { id: 2, icon: <PiSpeedometerBold />, title: "Horsepower", value: "150 hp" },
-    { id: 3, icon: <IoSpeedometerSharp />, title: "Max speed", value: "240 km/h" },
-    { id: 4, icon: <BsFillFuelPumpFill />, title: "Petrol", value: "Fuel" },
-    { id: 5, icon: <MdAirlineSeatReclineExtra />, title: "Places", value: "5 Seats" },
-    { id: 6, icon: <GiCarWheel />, title: "Drivetrain", value: "4x4" },
+    { id: 1, icon: <PiEngineFill />, titleKey: "engine", value: "2.0" },
+    { id: 2, icon: <PiSpeedometerBold />, titleKey: "horsepower", value: "150 hp" },
+    { id: 3, icon: <IoSpeedometerSharp />, titleKey: "maxSpeed", value: "240 km/h" },
+    { id: 4, icon: <BsFillFuelPumpFill />, titleKey: "petrol", value: "Fuel" },
+    { id: 5, icon: <MdAirlineSeatReclineExtra />, titleKey: "places", value: "5 Seats" },
+    { id: 6, icon: <GiCarWheel />, titleKey: "drivetrain", value: "4x4" },
 ];
+
 
 export const userInfo = [
     { id: 1, label: "phone", title: "+374 55 753272", href: "tel:+37455753272" },

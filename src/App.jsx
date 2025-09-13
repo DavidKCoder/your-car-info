@@ -1,11 +1,16 @@
 import { GrMapLocation } from "react-icons/gr";
 import LicensePlate from "./LicensePlate.jsx";
 import carImg from "./assets/nissan-x-trail.jpg";
-import { carSpecifications, userInfo } from "./constants/specifications.jsx";
 import { useEffect, useState } from "react";
 import { getLocation } from "./api/getLocation.jsx";
+import { ContactBlock } from "./components/ContactBlock.jsx";
+import { CarSpecificationBlock } from "./components/CarSpecificationBlock.jsx";
+import { useTranslation } from "react-i18next";
+import { LanguageSwitcher } from "./components/LanguageSwitcher.jsx";
 
 function App() {
+    const { t } = useTranslation();
+
     const [location, setLocation] = useState("Fetching location...");
 
     useEffect(() => {
@@ -27,13 +32,12 @@ function App() {
                                 <GrMapLocation />
                             </div>
                             <div>
-                                <div className="text-gray-400 text-[14px]">Your location</div>
+                                <div className="text-gray-400 text-[14px]">{t("yourLocation")}</div>
                                 <div className="text-black text-sm">{location}</div>
                             </div>
                         </div>
-                        <div className="border border-gray-400 bg-gray-100 p-2 rounded-lg font-medium">
-                            DK
-                        </div>
+                        {/* Language Switcher */}
+                        <LanguageSwitcher />
                     </div>
                     {/* Car Model */}
                     <div
@@ -50,51 +54,15 @@ function App() {
                         <LicensePlate />
                     </div>
                     {/* Car specifications */}
-                    <div
-                        className="text-xl font-bold capitalize mb-0 border border-gray-400 bg-gray-100 p-2 rounded-lg">
-                        car specifications
-                    </div>
-                    <div className="grid grid-cols-3 gap-2.5 mb-0 py-5">
-                        {carSpecifications.map((item, i) => (
-                            <div
-                                key={i}
-                                className="h-28 border border-gray-400 bg-gray-100 p-2 rounded-lg flex flex-col
-                                items-center justify-center hover:bg-blue-500 hover:text-white active:bg-blue-500 active:text-white cursor-pointer"
-                            >
-                                <div className="text-2xl">{item.icon}</div>
-                                <div className="text-center">
-                                    <div className="text-sm text-gray-500">{item.title}</div>
-                                    <div className="text-xl font-bold">{item.value}</div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                    <CarSpecificationBlock />
                     {/* User info */}
                     <div className="pb-5">
-                        {userInfo.map((item, i) => {
-                            return (
-                                <div
-                                    key={i}
-                                    className="group flex justify-between items-center border border-gray-400
-                                    bg-gray-100 p-2 rounded-lg mb-2 hover:bg-blue-500 hover:text-white active:bg-blue-500 active:text-white"
-                                >
-                                    <div
-                                        className="text-lg font-bold capitalize group-hover:text-white group-active:text-white">
-                                        {item.label}
-                                    </div>
-                                    <a href={item.href}
-                                       className="text-sm font-bold text-blue-400 group-hover:text-white group-active:text-white hover:underline active:underline"
-                                    >
-                                        {item.title}
-                                    </a>
-                                </div>
-                            );
-                        })}
+                        <ContactBlock />
                     </div>
                 </div>
                 <div
-                    className="font-bold capitalize mb-0 border p-2 rounded-lg bottom-0 left-0 w-full bg-gray-100 border-t border-gray-300 text-center text-gray-500 text-sm">
-                    © {new Date().getFullYear()} David's App. All rights reserved.
+                    className="font-bold mb-0 border p-2 rounded-lg bottom-0 left-0 w-full bg-gray-100 border-t border-gray-300 text-center text-gray-500 text-xs">
+                    {t("footerText")}
                 </div>
             </div>
         </div>

@@ -1,0 +1,16 @@
+{
+  "phone": "Phone",
+  "email": "Email",
+  "telegram": "Telegram",
+  "carSpecifications": "Car Specifications",
+  "yourLocation": "Your location",
+  "permissionDenied": "Permission denied",
+  "fetchingLocation": "Fetching...",
+  "engine": "Engine",
+  "horsepower": "Horsepower",
+  "maxSpeed": "Max speed",
+  "petrol": "Petrol",
+  "places": "Places",
+  "drivetrain": "Drivetrain",
+  "footerText": "© 2025 David's App. All rights reserved."
+}
