@@ -2,9 +2,21 @@ import { GrMapLocation } from "react-icons/gr";
 import LicensePlate from "./LicensePlate.jsx";
 import carImg from "./assets/nissan-x-trail.jpg";
 import { carSpecifications, userInfo } from "./constants/specifications.jsx";
+import { useEffect, useLayoutEffect, useState } from "react";
+import { getLocation } from "./api/getLocation.jsx";
 
 
 function App() {
+    const [location, setLocation] = useState("Fetching location...");
+
+    useEffect(() => {
+        const fetchLocation = async () => {
+            const currentLocation = await getLocation();
+            setLocation(currentLocation);
+        };
+        fetchLocation();
+    }, []);
+
     return (
         <div className="flex items-center justify-center bg-gray-50">
             <div className="w-full max-w-lg bg-white shadow-md rounded-lg">
@@ -17,7 +29,7 @@ function App() {
                             </div>
                             <div>
                                 <div className="text-gray-400 text-[14px]">Your location</div>
-                                <div className="text-black text-sm">Yerevan, Nor Norq</div>
+                                <div className="text-black text-sm">{location}</div>
                             </div>
                         </div>
                         <div className="border border-gray-400 bg-gray-100 p-2 rounded-lg font-medium">
@@ -68,7 +80,7 @@ function App() {
                                     <div
                                         className="text-xl font-bold capitalize group-hover:text-white">{item.label}</div>
                                     <a href={item.href}
-                                       className="text-lg font-bold capitalize text-blue-400 group-hover:text-white hover:underline"
+                                       className="text-lg font-bold text-blue-400 group-hover:text-white hover:underline"
                                     >
                                         {item.title}
                                     </a>
