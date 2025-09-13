@@ -21,8 +21,9 @@ function App() {
     return (
         <div className="flex items-center justify-center bg-gray-50">
             <div className="w-full max-w-lg bg-white shadow-md rounded-lg">
-                <div className="p-4 pb-0 ">
-                    <div className="flex justify-between items-center mb-5">
+                <div className="p-4 pb-0">
+                    {/* Header */}
+                    <div className="flex justify-between items-center pb-5">
                         <div className="flex justify-between items-center gap-2.5">
                             <div className="border border-gray-400 bg-gray-100 p-3 rounded-lg">
                                 <GrMapLocation />
@@ -36,22 +37,26 @@ function App() {
                             DK
                         </div>
                     </div>
+                    {/* Car Model */}
                     <div
-                        className="flex justify-between items-center mb-5 border border-gray-400 bg-gray-100 p-2 rounded-lg">
+                        className="flex justify-between items-center mb-0 border border-gray-400 bg-gray-100 p-2 rounded-lg">
                         <div className="text-lg font-bold ">Nissan X-Trail T30</div>
                         <div className="text-lg font-bold">2006</div>
                     </div>
-                    <div className="flex justify-center items-center mb-8">
+                    {/* Car Image */}
+                    <div className="flex justify-center items-center">
                         <img src={carImg} alt="car" />
                     </div>
+                    {/* Car number */}
                     <div className="flex items-center justify-center">
                         <LicensePlate />
                     </div>
+                    {/* Car specifications */}
                     <div
-                        className="text-xl font-bold capitalize mb-5 border border-gray-400 bg-gray-100 p-2 rounded-lg">
+                        className="text-xl font-bold capitalize mb-0 border border-gray-400 bg-gray-100 p-2 rounded-lg">
                         car specifications
                     </div>
-                    <div className="grid grid-cols-3 gap-2.5 mb-10">
+                    <div className="grid grid-cols-3 gap-2.5 mb-0 py-5">
                         {carSpecifications.map((item, i) => (
                             <div
                                 key={i}
@@ -65,36 +70,39 @@ function App() {
                             </div>
                         ))}
                     </div>
-                    <div
-                        className="group flex justify-between items-center border border-gray-400 bg-gray-100 p-2 rounded-lg mb-2 hover:bg-blue-500 hover:text-white">
-                        <div className="text-xl font-bold capitalize group-hover:text-white">Phone</div>
-                        <a href="tel:+37455753272"
-                           className="text-lg font-bold capitalize text-blue-400 group-hover:text-white hover:underline"
-                        >
-                            +374 55 753272
-                        </a>
-                    </div>
-                    <div
-                        className="group flex justify-between items-center border border-gray-400 bg-gray-100 p-2 rounded-lg mb-2 hover:bg-blue-500">
-                        <div className="text-xl font-bold capitalize group-hover:text-white">Telegram</div>
-                        <a
-                            href="https://t.me/@David_Coder"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-lg font-bold text-blue-400 group-hover:text-white hover:underline"
-                        >
-                            @David_Coder
-                        </a>
-                    </div>
-                    <div
-                        className="group flex justify-between items-center mb-10 border border-gray-400 bg-gray-100 p-2 rounded-lg hover:bg-blue-500 cursor-pointer">
-                        <div className="text-xl font-bold capitalize group-hover:text-white">Email</div>
-                        <a
-                            href="mailto:karapetyand91@gmail.com"
-                            className="text-lg font-bold text-blue-400 group-hover:text-white hover:underline"
-                        >
-                            karapetyand91@gmail.com
-                        </a>
+                    {/* User info */}
+                    <div className="pb-5">
+                        <div
+                            className="group flex justify-between items-center border border-gray-400 bg-gray-100 p-2 rounded-lg mb-2 hover:bg-blue-500 hover:text-white">
+                            <div className="text-xl font-bold capitalize group-hover:text-white">Phone</div>
+                            <a href="tel:+37455753272"
+                               className="text-lg font-bold capitalize text-blue-400 group-hover:text-white hover:underline"
+                            >
+                                +374 55 753272
+                            </a>
+                        </div>
+                        <div
+                            className="group flex justify-between items-center border border-gray-400 bg-gray-100 p-2 rounded-lg mb-2 hover:bg-blue-500">
+                            <div className="text-xl font-bold capitalize group-hover:text-white">Telegram</div>
+                            <a
+                                href="https://t.me/@David_Coder"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-lg font-bold text-blue-400 group-hover:text-white hover:underline"
+                            >
+                                @David_Coder
+                            </a>
+                        </div>
+                        <div
+                            className="group flex justify-between items-center mb-0 border border-gray-400 bg-gray-100 p-2 rounded-lg hover:bg-blue-500 cursor-pointer">
+                            <div className="text-xl font-bold capitalize group-hover:text-white">Email</div>
+                            <a
+                                href="mailto:karapetyand91@gmail.com"
+                                className="text-lg font-bold text-blue-400 group-hover:text-white hover:underline"
+                            >
+                                karapetyand91@gmail.com
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div
