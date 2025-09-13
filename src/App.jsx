@@ -1,8 +1,7 @@
 import { GrMapLocation } from "react-icons/gr";
 import LicensePlate from "./LicensePlate.jsx";
 import carImg from "./assets/nissan-x-trail.jpg";
-import { carSpecifications } from "./constants/specifications.jsx";
-
+import { carSpecifications, userInfo } from "./constants/specifications.jsx";
 
 
 function App() {
@@ -61,37 +60,44 @@ function App() {
                     </div>
                     {/* User info */}
                     <div className="pb-5">
-                        <div
-                            className="group flex justify-between items-center border border-gray-400 bg-gray-100 p-2 rounded-lg mb-2 hover:bg-blue-500 hover:text-white">
-                            <div className="text-xl font-bold capitalize group-hover:text-white">Phone</div>
-                            <a href="tel:+37455753272"
-                               className="text-lg font-bold capitalize text-blue-400 group-hover:text-white hover:underline"
-                            >
-                                +374 55 753272
-                            </a>
-                        </div>
-                        <div
-                            className="group flex justify-between items-center border border-gray-400 bg-gray-100 p-2 rounded-lg mb-2 hover:bg-blue-500">
-                            <div className="text-xl font-bold capitalize group-hover:text-white">Telegram</div>
-                            <a
-                                href="https://t.me/@David_Coder"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-lg font-bold text-blue-400 group-hover:text-white hover:underline"
-                            >
-                                @David_Coder
-                            </a>
-                        </div>
-                        <div
-                            className="group flex justify-between items-center mb-0 border border-gray-400 bg-gray-100 p-2 rounded-lg hover:bg-blue-500 cursor-pointer">
-                            <div className="text-xl font-bold capitalize group-hover:text-white">Email</div>
-                            <a
-                                href="mailto:karapetyand91@gmail.com"
-                                className="text-lg font-bold text-blue-400 group-hover:text-white hover:underline"
-                            >
-                                karapetyand91@gmail.com
-                            </a>
-                        </div>
+                        {userInfo.map((item, i) => {
+                            return (
+                                <div
+                                    key={i}
+                                    className="group flex justify-between items-center border border-gray-400 bg-gray-100 p-2 rounded-lg mb-2 hover:bg-blue-500 hover:text-white">
+                                    <div
+                                        className="text-xl font-bold capitalize group-hover:text-white">{item.label}</div>
+                                    <a href={item.href}
+                                       className="text-lg font-bold capitalize text-blue-400 group-hover:text-white hover:underline"
+                                    >
+                                        {item.title}
+                                    </a>
+                                </div>
+                            );
+                        })}
+
+                        {/*<div*/}
+                        {/*    className="group flex justify-between items-center border border-gray-400 bg-gray-100 p-2 rounded-lg mb-2 hover:bg-blue-500">*/}
+                        {/*    <div className="text-xl font-bold capitalize group-hover:text-white">Telegram</div>*/}
+                        {/*    <a*/}
+                        {/*        href="https://t.me/@David_Coder"*/}
+                        {/*        target="_blank"*/}
+                        {/*        rel="noopener noreferrer"*/}
+                        {/*        className="text-lg font-bold text-blue-400 group-hover:text-white hover:underline"*/}
+                        {/*    >*/}
+                        {/*        @David_Coder*/}
+                        {/*    </a>*/}
+                        {/*</div>*/}
+                        {/*<div*/}
+                        {/*    className="group flex justify-between items-center mb-0 border border-gray-400 bg-gray-100 p-2 rounded-lg hover:bg-blue-500 cursor-pointer">*/}
+                        {/*    <div className="text-xl font-bold capitalize group-hover:text-white">Email</div>*/}
+                        {/*    <a*/}
+                        {/*        href="mailto:karapetyand91@gmail.com"*/}
+                        {/*        className="text-lg font-bold text-blue-400 group-hover:text-white hover:underline"*/}
+                        {/*    >*/}
+                        {/*        karapetyand91@gmail.com*/}
+                        {/*    </a>*/}
+                        {/*</div>*/}
                     </div>
                 </div>
                 <div

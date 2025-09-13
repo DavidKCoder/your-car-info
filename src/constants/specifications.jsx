@@ -14,5 +14,7 @@ export const carSpecifications = [
 ];
 
 export const userInfo = [
-    {}
-]
+    { id: 1, label: "phone", title: "+374 55753272", href: "tel:+37455753272" },
+    { id: 2, label: "telegram", title: "@David_Coder", href: "https://t.me/@David_Coder" },
+    { id: 3, label: "email", title: "karapetyand91@gmail.com", href: "mailto:karapetyand91@gmail.com" },
+];
