@@ -26,8 +26,8 @@ export const SettingsPage = () => {
     };
 
     const handlePlateChange = (field, value) => {
-        if (field === "middle" && /[^0-9]/.test(value)) return;
-        if ((field === "left" || field === "right") && /[^a-zA-Z]/.test(value)) return;
+        if ((field === "left" || field === "right") && /[^0-9]/.test(value)) return;
+        if (field === "middle" && /[^a-zA-Z]/.test(value)) return;
 
         setTempPlate(prev => ({ ...prev, [field]: value.toUpperCase() }));
     };
