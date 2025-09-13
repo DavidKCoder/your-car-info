@@ -19,7 +19,7 @@ const carSpecifications = [
 
 function App() {
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50">
+        <div className="h-fit flex items-center justify-center bg-gray-50">
             <div className="min-h-screen w-full max-w-lg bg-white shadow-md rounded-lg">
                 <div className="p-4 pb-0 ">
                     <div className="flex justify-between items-center mb-5">
