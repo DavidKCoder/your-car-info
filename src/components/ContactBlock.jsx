@@ -10,7 +10,7 @@ export const ContactBlock = () => {
                 <div
                     key={i}
                     className="group flex justify-between items-center border border-gray-400
-                                    bg-gray-100 p-2 rounded-lg mb-2 hover:bg-blue-500 hover:text-white active:bg-blue-500 active:text-white"
+                                    bg-gray-100 p-2 rounded-lg mb-2 hover:bg-[#9C078F] active:bg-[#9C078F] hover:text-white active:text-white"
                 >
                     <div
                         className="text-lg font-bold capitalize group-hover:text-white group-active:text-white">

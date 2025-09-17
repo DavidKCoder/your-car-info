@@ -6,24 +6,33 @@ import { ContactBlock } from "./ContactBlock.jsx";
 import { getCarById } from "../api/getCarById.jsx";
 import { GiCarKey } from "react-icons/gi";
 import { LanguageSwitcher } from "./LanguageSwitcher.jsx";
-import SettingsIcon from "./HomePage/SettingIcon.jsx";
+import { HiOutlineBellAlert } from "react-icons/hi2";
+import { SiMinutemailer } from "react-icons/si";
 
-import { useTranslation } from "react-i18next"; // твой API fetch
+
+import { useTranslation } from "react-i18next";
+import { reportCar } from "../api/reportCar.jsx"; // твой API fetch
 
 export const CarPage = () => {
     const { t } = useTranslation();
     const { id } = useParams();
     const [car, setCar] = useState(null);
-    const [isBlocked, setIsBlocked] = useState(false);
     const [error, setError] = useState("");
+    const [reportSent, setReportSent] = useState(false);
 
     useEffect(() => {
+        // Проверяем localStorage, отправлял ли уже жалобу
+        const sentReports = JSON.parse(localStorage.getItem("sentReports") || "[]");
+        if (sentReports.includes(id)) {
+            setReportSent(true);
+        }
+
         const fetchCar = async () => {
             try {
                 const data = await getCarById("dv669");
                 setCar(data);
             } catch {
-                setError("The car was not found.");
+                setError("Автомобиль не найден.");
             }
         };
         fetchCar();
@@ -31,17 +40,18 @@ export const CarPage = () => {
 
     const handleReport = async () => {
         try {
-            // Здесь можно сделать POST-запрос на сервер
-            await fetch(`/api/report/${car.id}`, {
-                method: "POST",
-                body: JSON.stringify({ message: "Машина мешает" }),
-                headers: { "Content-Type": "application/json" },
-            });
+            // Мок-отправка жалобы
+            await reportCar(car.id);
 
+            // Сохраняем факт отправки в localStorage
+            const sentReports = JSON.parse(localStorage.getItem("sentReports") || "[]");
+            localStorage.setItem("sentReports", JSON.stringify([...sentReports, car.id]));
+
+            setReportSent(true);
             alert("Владелец получил уведомление!");
         } catch (err) {
             console.error(err);
-            alert("Ошибка отправки сообщения");
+            alert("Ошибка отправки жалобы");
         }
     };
 
@@ -90,15 +100,24 @@ export const CarPage = () => {
                         <ContactBlock />
                     </div>
                 </div>
-                {/*<div className="flex justify-center mt-4">*/}
-                {/*    <button*/}
-                {/*        onClick={handleReport}*/}
-                {/*        className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 transition"*/}
-                {/*    >*/}
-                {/*        {t("carIsBlockingMe")}*/}
-                {/*    </button>*/}
-                {/*</div>*/}
-
+                    {/*{!reportSent ?*/}
+                    {/*    <div className="flex justify-center pb-5">*/}
+                    {/*        <button*/}
+                    {/*            onClick={handleReport}*/}
+                    {/*            className="flex justify-between items-center gap-3 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 active:bg-red-600 transition"*/}
+                    {/*        >*/}
+                    {/*            <HiOutlineBellAlert size={20} /> {t("carIsBlockingMe")}*/}
+                    {/*        </button>*/}
+                    {/*    </div> :*/}
+                    {/*    <div className="flex justify-center pb-5">*/}
+                    {/*        <button*/}
+                    {/*            onClick={handleReport}*/}
+                    {/*            className="flex justify-between items-center gap-3 bg-green-600 text-white px-4 py-2 rounded transition"*/}
+                    {/*        >*/}
+                    {/*            <SiMinutemailer size={20} /> {t("sent")}*/}
+                    {/*        </button>*/}
+                    {/*    </div>*/}
+                    {/*}*/}
                 <div
                     className="font-bold mb-0 border p-2 rounded-lg bottom-0 left-0 w-full bg-gray-100 border-t border-gray-300 text-center text-gray-500 text-xs">
                     {t("footerText")}

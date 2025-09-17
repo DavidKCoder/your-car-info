@@ -16,12 +16,12 @@ export const CarSpecificationBlock = () => {
                 {carSpecifications.map((item, i) => (
                     <div
                         key={i}
-                        className="h-28 border border-gray-400 bg-gray-100 p-2 rounded-lg flex flex-col
-                                items-center justify-center hover:bg-blue-500 hover:text-white active:bg-blue-500 active:text-white cursor-pointer"
+                        className="group h-28 border border-gray-400 bg-gray-100 p-2 rounded-lg flex flex-col
+                                items-center justify-center hover:bg-[#9C078F] active:bg-[#9C078F] hover:text-white active:text-white cursor-pointer"
                     >
                         <div className="text-2xl">{item.icon}</div>
                         <div className="text-center">
-                            <div className="text-sm text-gray-500">{t(item.title)}</div>
+                            <div className="text-sm text-gray-500 group-hover:text-white group-active:text-white">{t(item.title)}</div>
                             <div className="text-xl font-bold">{item.value} {item.subValue}</div>
                         </div>
                     </div>
