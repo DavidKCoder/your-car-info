@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import LicensePlate from "../LicensePlate.jsx";
 import { CarSpecificationBlock } from "./CarSpecificationBlock.jsx";
 import { ContactBlock } from "./ContactBlock.jsx";
@@ -11,10 +11,17 @@ import { SiMinutemailer } from "react-icons/si";
 
 
 import { useTranslation } from "react-i18next";
-import { reportCar } from "../api/reportCar.jsx"; // твой API fetch
+import { reportCar } from "../api/reportCar.jsx";
+import SettingsIcon from "./HomePage/SettingIcon.jsx";
+import { useAuth } from "../hooks/useAuth.jsx";
+import { CarContext } from "../context/CarContext.jsx";
+import { Loading } from "./Loading.jsx"; // твой API fetch
 
 export const CarPage = () => {
     const { t } = useTranslation();
+    const { carImage } = useContext(CarContext);
+
+    const { login } = useAuth();
     const { id } = useParams();
     const [car, setCar] = useState(null);
     const [error, setError] = useState("");
@@ -56,7 +63,7 @@ export const CarPage = () => {
     };
 
     if (error) return <div className="p-5 text-center">{error}</div>;
-    if (!car) return <div className="p-5 text-center">Loading...</div>;
+    if (!car) return <Loading />;
 
     return (
         <div className="flex items-center justify-center bg-gray-50">
@@ -74,9 +81,8 @@ export const CarPage = () => {
                             </div>
                         </div>
 
-                        {/* Language Switcher */}
                         <LanguageSwitcher />
-                        {/*<SettingsIcon />*/}
+                        {login && <SettingsIcon />}
                     </div>
 
                     {/* Car Model */}
@@ -87,7 +93,7 @@ export const CarPage = () => {
                     </div>
                     {/* Car Image */}
                     <div className="flex justify-center items-center py-5">
-                        <img src={car.image} alt="car" />
+                        <img src={carImage} alt="car" />
                     </div>
                     {/* Car number */}
                     <div className="flex items-center justify-center">
@@ -100,24 +106,24 @@ export const CarPage = () => {
                         <ContactBlock />
                     </div>
                 </div>
-                    {/*{!reportSent ?*/}
-                    {/*    <div className="flex justify-center pb-5">*/}
-                    {/*        <button*/}
-                    {/*            onClick={handleReport}*/}
-                    {/*            className="flex justify-between items-center gap-3 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 active:bg-red-600 transition"*/}
-                    {/*        >*/}
-                    {/*            <HiOutlineBellAlert size={20} /> {t("carIsBlockingMe")}*/}
-                    {/*        </button>*/}
-                    {/*    </div> :*/}
-                    {/*    <div className="flex justify-center pb-5">*/}
-                    {/*        <button*/}
-                    {/*            onClick={handleReport}*/}
-                    {/*            className="flex justify-between items-center gap-3 bg-green-600 text-white px-4 py-2 rounded transition"*/}
-                    {/*        >*/}
-                    {/*            <SiMinutemailer size={20} /> {t("sent")}*/}
-                    {/*        </button>*/}
-                    {/*    </div>*/}
-                    {/*}*/}
+                {/*{!reportSent ?*/}
+                {/*    <div className="flex justify-center pb-5">*/}
+                {/*        <button*/}
+                {/*            onClick={handleReport}*/}
+                {/*            className="flex justify-between items-center gap-3 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 active:bg-red-600 transition"*/}
+                {/*        >*/}
+                {/*            <HiOutlineBellAlert size={20} /> {t("carIsBlockingMe")}*/}
+                {/*        </button>*/}
+                {/*    </div> :*/}
+                {/*    <div className="flex justify-center pb-5">*/}
+                {/*        <button*/}
+                {/*            onClick={handleReport}*/}
+                {/*            className="flex justify-between items-center gap-3 bg-green-600 text-white px-4 py-2 rounded transition"*/}
+                {/*        >*/}
+                {/*            <SiMinutemailer size={20} /> {t("sent")}*/}
+                {/*        </button>*/}
+                {/*    </div>*/}
+                {/*}*/}
                 <div
                     className="font-bold mb-0 border p-2 rounded-lg bottom-0 left-0 w-full bg-gray-100 border-t border-gray-300 text-center text-gray-500 text-xs">
                     {t("footerText")}

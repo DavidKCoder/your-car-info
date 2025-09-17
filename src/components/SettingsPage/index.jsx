@@ -1,27 +1,41 @@
+// components/SettingsPage/index.jsx
 import { useContext, useState, useEffect } from "react";
 import { CarContext } from "../../context/CarContext.jsx";
 import { useNavigate } from "react-router-dom";
 
 export const SettingsPage = () => {
     const navigate = useNavigate();
-    const { model, setModel, year, setYear, specs, setSpecs, licensePlate, setLicensePlate } = useContext(CarContext);
+    const {
+        model, setModel,
+        year, setYear,
+        specs, setSpecs,
+        licensePlate, setLicensePlate,
+        carImage, setCarImage,
+        contacts, setContacts
+    } = useContext(CarContext);
 
+    // временные стейты
     const [tempModel, setTempModel] = useState(model);
     const [tempYear, setTempYear] = useState(year);
     const [tempSpecs, setTempSpecs] = useState(specs);
     const [tempPlate, setTempPlate] = useState(licensePlate);
-    const [success, setSuccess] = useState(false); // success message state
+    const [tempImage, setTempImage] = useState(carImage);
+    const [tempContacts, setTempContacts] = useState(contacts);
+
+    const [success, setSuccess] = useState(false);
 
     useEffect(() => {
         setTempModel(model);
         setTempYear(year);
         setTempSpecs(specs);
         setTempPlate(licensePlate);
-    }, [model, year, specs, licensePlate]);
+        setTempImage(carImage);
+        setTempContacts(contacts);
+    }, [model, year, specs, licensePlate, carImage, contacts]);
 
     const handleSpecChange = (id, newValue) => {
         setTempSpecs(prev =>
-            prev.map(item => (item.id === id ? { ...item, value: newValue } : item)),
+            prev.map(item => (item.id === id ? { ...item, value: newValue } : item))
         );
     };
 
@@ -37,11 +51,10 @@ export const SettingsPage = () => {
         setYear(tempYear);
         setSpecs(tempSpecs);
         setLicensePlate(tempPlate);
+        setCarImage(tempImage);
+        setContacts(tempContacts);
 
-        // Show success message
         setSuccess(true);
-
-        // Navigate after 1.5 seconds
         setTimeout(() => {
             navigate("/");
         }, 1500);
@@ -52,12 +65,27 @@ export const SettingsPage = () => {
         setTempYear(year);
         setTempSpecs(specs);
         setTempPlate(licensePlate);
+        setTempImage(carImage);
+        setTempContacts(contacts);
         navigate("/");
     };
 
     return (
         <div className="p-6 max-w-2xl mx-auto w-full">
             <h1 className="text-2xl font-bold mb-6">Edit Car Info</h1>
+
+            {/* === Car Image === */}
+            <h2 className="text-xl font-semibold mb-4">Car Image</h2>
+            <div className="flex flex-col gap-2 mb-6">
+                <img src={tempImage} alt="car" className="w-full rounded-md border"/>
+                <input
+                    type="text"
+                    value={tempImage}
+                    onChange={e => setTempImage(e.target.value)}
+                    placeholder="Enter image URL"
+                    className="border border-gray-300 p-2 rounded-md"
+                />
+            </div>
 
             {/* Model & Year */}
             <div className="grid grid-cols-2 gap-4 mb-6">
@@ -85,10 +113,7 @@ export const SettingsPage = () => {
             <h2 className="text-xl font-semibold mb-4">Specifications</h2>
             <div className="grid grid-cols-3 gap-4">
                 {tempSpecs.map(item => (
-                    <div
-                        key={item.id}
-                        className="flex flex-col items-center border border-gray-300 rounded-md p-3 bg-gray-100"
-                    >
+                    <div key={item.id} className="flex flex-col items-center border border-gray-300 rounded-md p-3 bg-gray-100">
                         <div className="text-2xl mb-2">{item.icon}</div>
                         <div className="text-gray-600 text-sm mb-1">{item.title}</div>
                         <input
@@ -127,6 +152,47 @@ export const SettingsPage = () => {
                 />
             </div>
 
+            {/* Contacts */}
+            <h2 className="text-xl font-semibold mb-4">Contacts</h2>
+            <div className="grid grid-cols-2 gap-4 mb-6">
+                <div>
+                    <label className="block text-gray-700 mb-1">Phone:</label>
+                    <input
+                        type="text"
+                        value={tempContacts.phone}
+                        onChange={e => setTempContacts({ ...tempContacts, phone: e.target.value })}
+                        className="w-full border border-gray-300 p-2 rounded-md"
+                    />
+                </div>
+                <div>
+                    <label className="block text-gray-700 mb-1">Email:</label>
+                    <input
+                        type="text"
+                        value={tempContacts.email}
+                        onChange={e => setTempContacts({ ...tempContacts, email: e.target.value })}
+                        className="w-full border border-gray-300 p-2 rounded-md"
+                    />
+                </div>
+                <div>
+                    <label className="block text-gray-700 mb-1">Telegram:</label>
+                    <input
+                        type="text"
+                        value={tempContacts.telegram}
+                        onChange={e => setTempContacts({ ...tempContacts, telegram: e.target.value })}
+                        className="w-full border border-gray-300 p-2 rounded-md"
+                    />
+                </div>
+                <div>
+                    <label className="block text-gray-700 mb-1">Instagram:</label>
+                    <input
+                        type="text"
+                        value={tempContacts.instagram}
+                        onChange={e => setTempContacts({ ...tempContacts, instagram: e.target.value })}
+                        className="w-full border border-gray-300 p-2 rounded-md"
+                    />
+                </div>
+            </div>
+
             {/* Buttons */}
             <div className="flex gap-4 mt-6">
                 <button
@@ -143,10 +209,8 @@ export const SettingsPage = () => {
                 </button>
             </div>
 
-            {/* Success message */}
             {success && (
-                <div
-                    className="fixed top-0 left-0 w-full h-12 flex items-center justify-center bg-green-500 text-white font-bold p-2">
+                <div className="fixed top-0 left-0 w-full h-12 flex items-center justify-center bg-green-500 text-white font-bold p-2">
                     Car info saved successfully!
                 </div>
             )}
