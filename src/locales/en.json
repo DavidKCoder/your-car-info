@@ -12,5 +12,7 @@
   "petrol": "Petrol",
   "places": "Places",
   "drivetrain": "Drivetrain",
+  "carType": "Car type",
+  "carIsBlockingMe": "Car is blocking Me!",
   "footerText": "© 2025 Carfolio. All rights reserved."
 }

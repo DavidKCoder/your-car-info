@@ -2,7 +2,7 @@
   "phone": "Հեռախոս",
   "email": "Էլ․ հասցե",
   "telegram": "Թելեգրամ",
-  "carSpecifications": "Մեքենայի բնութագրերը",
+  "carSpecifications": "Մեքենայի բնութագիրը",
   "yourLocation": "Ձեր գտնվելու վայրը",
   "permissionDenied": "Մուտքը մերժված է",
   "fetchingLocation": "Վերցվում է գտնվելու վայրը...",
@@ -12,5 +12,7 @@
   "petrol": "Բենզին",
   "places": "Նստատեղեր",
   "drivetrain": "Քարշակում",
+  "carType": "Մեքենայի տեսակ",
+  "carIsBlockingMe": "Մեքենան ինձ խանգարում է!",
   "footerText": "© 2025 Carfolio։ Բոլոր իրավունքները պաշտպանված են։"
 }

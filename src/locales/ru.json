@@ -12,5 +12,7 @@
   "petrol": "Бензин",
   "places": "Места",
   "drivetrain": "Привод",
+  "carType": "Тип авто",
+  "carIsBlockingMe": "Машина блокирует меня!",
   "footerText": "© 2025 Carfolio. Все права защищены."
 }
