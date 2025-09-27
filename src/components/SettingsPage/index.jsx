@@ -77,13 +77,20 @@ export const SettingsPage = () => {
             {/* === Car Image === */}
             <h2 className="text-xl font-semibold mb-4">Car Image</h2>
             <div className="flex flex-col gap-2 mb-6">
-                <img src={tempImage} alt="car" className="w-full rounded-md border"/>
+                {tempImage && (
+                    <img src={tempImage} alt="car" className=" w-1/2 rounded-md border" />
+                )}
                 <input
-                    type="text"
-                    value={tempImage}
-                    onChange={e => setTempImage(e.target.value)}
-                    placeholder="Enter image URL"
-                    className="border border-gray-300 p-2 rounded-md"
+                    type="file"
+                    accept="image/*"
+                    onChange={e => {
+                        const file = e.target.files[0];
+                        if (!file) return;
+
+                        const imageUrl = URL.createObjectURL(file);
+                        setTempImage(imageUrl);
+                    }}
+                    className="border border-gray-300 p-2 rounded-md cursor-pointer"
                 />
             </div>
 

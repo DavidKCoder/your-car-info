@@ -1,7 +1,5 @@
 import { userInfo } from "../constants/specifications.jsx";
 import { useTranslation } from "react-i18next";
-import { useContext } from "react";
-import { CarContext } from "../context/CarContext.jsx";
 
 export const ContactBlock = () => {
     const { t } = useTranslation();
@@ -18,7 +16,7 @@ export const ContactBlock = () => {
                         {t(item.label)}
                     </div>
                     <a href={item.href}
-                       className="text-sm font-bold text-blue-400 group-hover:text-white group-active:text-white hover:underline active:underline"
+                       className="text-sm font-bold text-[#9C078F] group-hover:text-white group-active:text-white hover:underline active:underline"
                     >
                         {item.title}
                     </a>

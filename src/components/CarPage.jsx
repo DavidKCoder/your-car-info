@@ -21,7 +21,7 @@ export const CarPage = () => {
     const { t } = useTranslation();
     const { carImage } = useContext(CarContext);
 
-    const { login } = useAuth();
+    const { user } = useAuth();
     const { id } = useParams();
     const [car, setCar] = useState(null);
     const [error, setError] = useState("");
@@ -82,7 +82,7 @@ export const CarPage = () => {
                         </div>
 
                         <LanguageSwitcher />
-                        {login && <SettingsIcon />}
+                        {user && <SettingsIcon />}
                     </div>
 
                     {/* Car Model */}
@@ -93,7 +93,7 @@ export const CarPage = () => {
                     </div>
                     {/* Car Image */}
                     <div className="flex justify-center items-center py-5">
-                        <img src={carImage} alt="car" />
+                        <img src={carImage} alt="car" className=" w-full max-h-80"/>
                     </div>
                     {/* Car number */}
                     <div className="flex items-center justify-center">
