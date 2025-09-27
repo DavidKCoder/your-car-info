@@ -82,7 +82,6 @@ export const CarPage = () => {
                         </div>
 
                         <LanguageSwitcher />
-                        {/*{user && <SettingsIcon />}*/}
                     </div>
 
                     {/* Car Model */}
